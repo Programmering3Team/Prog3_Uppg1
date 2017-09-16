@@ -7,8 +7,8 @@ public class FileTree {
 		rootFolder = new Folder("All Sound Clips", null, true);
 	}
 	
-	public void createFolder() {
-		
+	public void createFolder(Folder parent) {
+		Folder folder = new Folder("", parent, false);
 	}
 	
 	public void createSoundClip() {

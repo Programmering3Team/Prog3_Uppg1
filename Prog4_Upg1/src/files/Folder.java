@@ -10,8 +10,8 @@ public class Folder extends AbstractFile {
 	private ArrayList<AbstractFile> children;
 
 	
-	public Folder(String name, Folder parent, boolean isRoot) {
-		super(name, parent, isRoot);
+	public Folder(String name, Folder parentFolder, boolean isRoot) {
+		super(name, parentFolder, isRoot);
 		children = new ArrayList<>();
 	}
 	

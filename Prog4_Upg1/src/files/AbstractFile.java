@@ -7,23 +7,34 @@ package files;
  */
 public abstract class AbstractFile {
 	protected String name;
-	protected Folder parent;
+	protected Folder parentFolder;
 	
 	/**
 	 * Takes a parent folder as parameter if the file isn't the root folder
 	 * If is root folder, leave parent as null
 	 */
-	public AbstractFile(String name, Folder parent, boolean isRoot) {
+	public AbstractFile(String name, Folder parentFolder, boolean isRoot) {
+//		assert (parent == null) : (isRoot == true);
 		this.name = name;
-		if (!isRoot) this.parent = parent;
+		if (!isRoot) this.parentFolder = parentFolder;
+//		assert (isRoot == false) : (parent != null);
 	}
+	
 	/**
 	 * Set a new parent folder.
 	 * Used when moving files
 	 * @param folder new parent folder of the file
 	 */
-	public void setParent(Folder folder) {
-		this.parent = folder;
+	public void setParent(Folder newParentFolder) {
+		this.parentFolder = newParentFolder;
+	}
+	
+	/**
+	 * Rename the file
+	 * @param newName the new name of the file
+	 */
+	public void rename(String newName) {
+		this.name = newName;
 	}
 	
 	/**
@@ -35,13 +46,14 @@ public abstract class AbstractFile {
 	
 	/**
 	 * Prints out the name and the parent of the file
+	 * Doesn't print out a parent if it is a root folder
 	 */
 	@Override
 	public String toString() {
-		return name +  ", Parent: " + parent + "\n";
+		String output = name;
+		if (parentFolder != null) {
+			output += ", Parent: " + parentFolder + "\n";
+		}
+		return output;
 	}
-	
-//	public abstract void delete();
-	
-	
 }

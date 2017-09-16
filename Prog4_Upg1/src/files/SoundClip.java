@@ -6,7 +6,7 @@ import java.io.File;
  * SoundClip is a class representing a digital
  * sound clip file on disk.
  */
-public class SoundClip {
+public class SoundClip extends AbstractFile {
 
 	private final File file;
 	
@@ -14,7 +14,8 @@ public class SoundClip {
 	 * Make a SoundClip from a file.
 	 * Requires file != null.
 	 */
-	public SoundClip(File file) {
+	public SoundClip(String name, Folder parentFolder, File file) {
+		super(name, parentFolder, false);
 		assert file != null;
 		this.file = file;
 	}
