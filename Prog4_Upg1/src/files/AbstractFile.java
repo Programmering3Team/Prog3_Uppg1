@@ -45,15 +45,10 @@ public abstract class AbstractFile {
 	}
 	
 	/**
-	 * Prints out the name and the parent of the file
-	 * Doesn't print out a parent if it is a root folder
+	 * Prints out the name;
 	 */
 	@Override
 	public String toString() {
-		String output = name;
-		if (parentFolder != null) {
-			output += ", Parent: " + parentFolder + "\n";
-		}
-		return output;
+		return name;
 	}
 }
