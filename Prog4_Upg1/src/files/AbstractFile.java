@@ -51,4 +51,8 @@ public abstract class AbstractFile {
 	public String toString() {
 		return name;
 	}
+	
+	public Folder getParent() {
+		return parentFolder;
+	}
 }

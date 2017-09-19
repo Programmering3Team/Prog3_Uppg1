@@ -11,29 +11,35 @@ public class FileTree {
 	
 	
 	/**
-	 * Create a new Sound clip in the folder given as a parameter
+	 * Create a new sound clip in the folder given as a parameter
 	 * If no folder with the name given is found, a new folder is created in the root folder.
+	 * 
+	 * The created sound clip is returned
 	 */
-	public void createNewSoundClip(String name, File file, String targetFolderName) {
+	public SoundClip createNewSoundClip(String name, File file, String targetFolderName) {
 		Folder folder = rootFolder.getFolder(targetFolderName);
 		if (folder == null) {
 			folder = createNewFolderInRoot(targetFolderName);
 		}
 		SoundClip clip = new SoundClip(name, folder, file);
 		folder.addChild(clip);
+		return clip;
 	}
 	
 	/**
 	 * Create a new folder in the folder given as a parameter
 	 * If no folder with the name given is found, a new folder is created in the root folder.
+	 * 
+	 * The created folder is returned.
 	 */
-	public void createNewFolder(String name, String targetFolderName) {
+	public Folder createNewFolder(String name, String targetFolderName) {
 		Folder folder = rootFolder.getFolder(targetFolderName);
 		if (folder == null) {
 			folder = createNewFolderInRoot(targetFolderName);
 		}
 		Folder newFolder = new Folder(name, folder, false);
 		folder.addChild(newFolder);
+		return newFolder;
 	}
 	
 	/**
@@ -56,6 +62,11 @@ public class FileTree {
 	@Override
 	public String toString() {
 		return rootFolder.toString();
+	}
+
+
+	public Folder getRootFolder() {
+		return rootFolder;
 	}
 
 
