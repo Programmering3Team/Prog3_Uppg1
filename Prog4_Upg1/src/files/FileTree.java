@@ -17,12 +17,15 @@ public class FileTree {
 	 * The created sound clip is returned
 	 */
 	public SoundClip createNewSoundClip(String name, File file, String targetFolderName) {
+		assert(rootFolder != null);  //Test that root is not null
 		Folder folder = rootFolder.getFolder(targetFolderName);
 		if (folder == null) {
 			folder = createNewFolderInRoot(targetFolderName);
 		}
 		SoundClip clip = new SoundClip(name, folder, file);
 		folder.addChild(clip);
+		//Test if root contains the created clip and that the clip is in the right folder
+		assert(rootFolder.getChildren().contains(clip) && folder.getChildren().contains(clip));
 		return clip;
 	}
 	
@@ -33,12 +36,15 @@ public class FileTree {
 	 * The created folder is returned.
 	 */
 	public Folder createNewFolder(String name, String targetFolderName) {
+		assert(rootFolder != null); //Test that root is not null
 		Folder folder = rootFolder.getFolder(targetFolderName);
 		if (folder == null) {
 			folder = createNewFolderInRoot(targetFolderName);
 		}
 		Folder newFolder = new Folder(name, folder, false);
 		folder.addChild(newFolder);
+		//Test if root contains the target folder and the target folder contains the newly created folder
+		assert(rootFolder.getFolder(targetFolderName) != null && folder.getFolder(name) != null);
 		return newFolder;
 	}
 	
@@ -46,9 +52,12 @@ public class FileTree {
 	 * Returns a new folder with the name given, created in the root folder
 	 */
 	public Folder createNewFolderInRoot(String name) {
+		assert(rootFolder != null); //Test that root is not null
 		Folder folder = new Folder(name, rootFolder, false);
 		rootFolder.addChild(folder);
+		assert(rootFolder.getFolder(name) != null); //Test if root contains the newly created folder
 		return folder;
+		
 	}
 	
 	/**

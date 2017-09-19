@@ -14,10 +14,8 @@ public abstract class AbstractFile {
 	 * If is root folder, leave parent as null
 	 */
 	public AbstractFile(String name, Folder parentFolder, boolean isRoot) {
-//		assert (parent == null) : (isRoot == true);
 		this.name = name;
 		if (!isRoot) this.parentFolder = parentFolder;
-//		assert (isRoot == false) : (parent != null);
 	}
 	
 	/**
@@ -26,6 +24,7 @@ public abstract class AbstractFile {
 	 * @param folder new parent folder of the file
 	 */
 	public void setParent(Folder newParentFolder) {
+		assert(newParentFolder != null); // Make sure the new parent folder isn't null
 		this.parentFolder = newParentFolder;
 	}
 	

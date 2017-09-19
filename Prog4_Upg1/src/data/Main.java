@@ -22,8 +22,6 @@ public class Main {
 			System.out.println(folder.getChildren());
 		}
 		
-//		System.out.println(files);
-		
 	}
 
 }

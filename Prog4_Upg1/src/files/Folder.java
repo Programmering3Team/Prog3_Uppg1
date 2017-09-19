@@ -19,9 +19,9 @@ public class Folder extends AbstractFile {
 	 * @param abstractFile file or folder added to the folder
 	 */
 	public void addChild(AbstractFile abstractFile) {
-//		assert(children != null);
+		assert(children != null);
 		children.add(abstractFile);
-//		assert(children.contains(abstractFile));	
+		assert(children.contains(abstractFile));	
 	}
 	
 	/**
