@@ -7,13 +7,12 @@ import org.junit.Test;
 import files.FileTree;
 import files.Folder;
 
+/**
+ * Creates a folder in the root folder and then 
+ * tests if the root folder is the parent folder of the created folder.
+ * 
+ */
 public class createFolderInRootTest {
-	
-	/**
-	 * Creates a folder in the root folder and then 
-	 * tests if the root folder is the parent folder of the created folder.
-	 * 
-	 */
 
 	@Test
 	public void test() {

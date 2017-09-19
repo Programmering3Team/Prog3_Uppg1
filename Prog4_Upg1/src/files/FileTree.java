@@ -6,9 +6,9 @@ public class FileTree {
 	private Folder rootFolder;
 	
 	public FileTree() {
+		//Create the root folder of the data structure
 		rootFolder = new Folder("All Sound Clips", null, true);
 	}
-	
 	
 	/**
 	 * Create a new sound clip in the folder given as a parameter

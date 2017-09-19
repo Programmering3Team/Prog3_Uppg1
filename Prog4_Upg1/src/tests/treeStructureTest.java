@@ -10,12 +10,11 @@ import files.FileTree;
 import files.Folder;
 import files.SoundClip;
 
+/**
+ * Test if the child hierarchy is working by checking if the different folders have the right children
+ * 
+ */
 public class treeStructureTest {
-	
-	/**
-	 * Test if the child hierarchy is working by checking if the different folders have the right children
-	 * 
-	 */
 
 	@Test
 	public void test() {
